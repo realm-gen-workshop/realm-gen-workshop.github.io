@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ReALM‑GEN Workshop</title>
-  <meta name="description" content="ReALM‑GEN: Real‑World–Constrained and Preference‑Aligned Flow‑ and Diffusion‑Based Models" />
+  <title>ReALM-GEN Workshop</title>
+  <meta name="description" content="ReALM-GEN: Real-World–Constrained and Preference-Aligned Flow- and Diffusion-Based Models" />
   <link rel="icon" href="favicon.ico" />
   <style>
     :root{
@@ -22,8 +22,12 @@
     }
     html,body{height:100%;}
     body{
-      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:radial-gradient(1200px 800px at 80% -10%, rgba(122,92,255,.20), transparent 60%),
-      radial-gradient(800px 500px at -10% 20%, rgba(106,163,255,.18), transparent 60%), var(--bg);
+      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(122,92,255,.20), transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, rgba(106,163,255,.18), transparent 60%),
+        var(--bg);
     }
     a{color:inherit;}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
@@ -40,7 +44,7 @@
       display:inline-block; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:600;
       background:linear-gradient(135deg, var(--brand), var(--brand2)); color:white; box-shadow:0 6px 18px rgba(122,92,255,.35);
     }
-    .btn.ghost{background:transparent; border:1px solid #2a3340; color:var(--text);}    
+    .btn.ghost{background:transparent; border:1px solid #2a3340; color:var(--text);}
     .hero{padding:72px 0 40px;}
     .hero .card{
       display:grid; grid-template-columns:120px 1fr; gap:24px; align-items:center;
@@ -55,26 +59,56 @@
 
     section{padding:36px 0;}
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:22px;}
-    .card{grid-column: span 12; background:var(--card); border:1px solid #1e232b; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);} 
+    .card{grid-column: span 12; background:var(--card); border:1px solid #1e232b; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);}
     .card h3{margin:0 0 10px; font-size:20px;}
     .card p{margin:0 0 12px;}
     .list{margin:0; padding-left:18px;}
 
-    footer{border-top:1px solid #1e232b; color:var(--muted); padding:28px 0 60px;}
+    /* --- People / Photos --- */
+    .people-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top:12px;
+    }
+    .person{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border:1px solid #1e232b;
+      border-radius:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+    }
+    .avatar{
+      width:64px; height:64px;
+      border-radius:999px;
+      object-fit:cover;
+      border:1px solid #2a3340;
+      background:#0f1318;
+      flex:0 0 auto;
+    }
+    .person .name{font-weight:700; line-height:1.2;}
+    .person .role{color:var(--muted); font-size:14px; margin-top:2px;}
+    .person .affil{color:var(--muted); font-size:13px; margin-top:2px;}
+    .person a{opacity:.9; text-decoration:none;}
+    .person a:hover{opacity:1; text-decoration:underline;}
 
     @media (min-width: 880px){
       .card.span4{grid-column: span 4;}
       .card.span6{grid-column: span 6;}
+      .people-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
     }
+
+    footer{border-top:1px solid #1e232b; color:var(--muted); padding:28px 0 60px;}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
       <a class="logo" href="#">
-        <!-- Place your logo file in the repo root as `realm-gen-logo.png` or adjust the src below -->
-        <img src="realm-gen-logo.png" alt="ReALM‑GEN logo" />
-        <span>ReALM‑GEN Workshop</span>
+        <img src="realm-gen-logo.png" alt="ReALM-GEN logo" />
+        <span>ReALM-GEN Workshop</span>
       </a>
       <nav class="links">
         <a class="btn ghost" href="#cfp">Call for Papers</a>
@@ -87,13 +121,13 @@
   <main class="wrap">
     <section class="hero">
       <div class="card">
-        <img class="logo" src="realm-gen-logo.png" alt="ReALM‑GEN" />
+        <img class="logo" src="realm-gen-logo.png" alt="ReALM-GEN" />
         <div>
-          <h1 class="title">Real‑World–Constrained and Preference‑Aligned Flow‑ and Diffusion‑Based Models</h1>
-          <p class="subtitle">A workshop on post‑training and inference‑time alignment for generative models.</p>
+          <h1 class="title">Real-World–Constrained and Preference-Aligned Flow- and Diffusion-Based Models</h1>
+          <p class="subtitle">A workshop on post-training and inference-time alignment for generative models.</p>
           <div class="meta">
             <span class="pill">ICLR 2026 • <em>Rio de Janeiro/ April 26th, 2026 </em></span>
-            <span class="pill">Hybrid (in‑person + virtual)</span>
+            <span class="pill">Hybrid (in-person + virtual)</span>
           </div>
         </div>
       </div>
@@ -104,16 +138,16 @@
         <article class="card span6">
           <h3>About</h3>
           <p>
-            ReALM‑GEN brings together researchers and practitioners working on aligning flow‑ and diffusion‑based
-            models with real‑world constraints and human preferences. Topics include distribution tilting, reward‑guided
-            generation, discrete diffusion guidance, test‑time scaling,
+            ReALM-GEN brings together researchers and practitioners working on aligning flow- and diffusion-based
+            models with real-world constraints and human preferences. Topics include distribution tilting, reward-guided
+            generation, discrete diffusion guidance, test-time scaling,
             and applications in language, vision, scientific imaging, molecules, and robotics.
           </p>
         </article>
         <article class="card span6">
           <h3>Goals</h3>
           <ul class="list">
-            <li>Bridge theory and practice of post-training and inference‑time alignment of diffusion and flow models.</li>
+            <li>Bridge theory and practice of post-training and inference-time alignment of diffusion and flow models.</li>
           </ul>
         </article>
       </div>
@@ -123,14 +157,16 @@
       <div class="grid">
         <article class="card span12">
           <h3>Call for Papers</h3>
-           <p>We invite 4 page extended abstracts (non‑archival) on any relevant topic.
-             All submissions are double‑blind and will receive at least two reviews.
-             Accepted papers will be presented as posters; selected works may receive spotlights.</p>
+          <p>
+            We invite full papers and 4 page extended abstracts (non-archival) on any relevant topic.
+            All submissions are double-blind and will receive at least two reviews.
+            Accepted papers will be presented as posters; selected works may receive spotlights.
+          </p>
           <ul class="list">
-            <li>Submission site: <strong>TBA</strong></li>
-            <li>Formatting & policy: follow ICLR workshop guidelines</li>
-            <li>Contact: <a href="#contact">realm‑gen‑org@tba</a></li>
-          </ul> 
+            <li>Submission site: <strong>OpenReview</strong></li>
+            <li>Formatting &amp; policy: follow ICLR workshop guidelines</li>
+            <li>Contact: <a href="#contact">realm-gen-org@tba</a></li>
+          </ul>
         </article>
       </div>
     </section>
@@ -140,19 +176,125 @@
         <article class="card span4">
           <h3>Important Dates</h3>
           <ul class="list">
-            <li>Submission deadline: <strong>January 30, 2026</strong></li>
-            <li>Notification: <strong>TBA</strong></li>
-            <li>Camera‑ready / poster: <strong>TBA</strong></li>
-            <li>Workshop: <strong>TBA</strong></li>
+            <li>Submission deadline: <strong>January 30, 2026 (AOE)</strong></li>
+            <li>Notification: <strong>March 1st, 2026</strong></li>
+            <li>Camera-ready / poster: <strong>TBA</strong></li>
+            <li>Workshop: <strong>April 26th, 2026</strong></li>
           </ul>
         </article>
-        <article class="card span4">
-          <h3>Invited Speakers (preview)</h3>
-          <p>Announced soon. Stay tuned.</p>
+
+        <!-- UPDATED: Speakers + Panelists with pictures -->
+        <article class="card span4" id="speakers">
+          <h3>Invited Speakers &amp; Panelists (preview)</h3>
+          <p class="subtitle" style="margin:0 0 10px;">
+            Replace the placeholders with headshots and names as you confirm participation.
+          </p>
+
+          <div class="people-grid">
+            <!-- Speaker / Panelist 1 -->
+            <div class="person">
+              <img class="avatar" src="speakers/speaker-1.jpg" alt="Speaker 1 headshot" />
+              <div>
+                <div class="name">Speaker Name 1</div>
+                <div class="role">Invited Speaker</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <!-- Speaker / Panelist 2 -->
+            <div class="person">
+              <img class="avatar" src="speakers/speaker-2.jpg" alt="Speaker 2 headshot" />
+              <div>
+                <div class="name">Speaker Name 2</div>
+                <div class="role">Invited Speaker</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <!-- Speaker / Panelist 3 -->
+            <div class="person">
+              <img class="avatar" src="speakers/panelist-1.jpg" alt="Panelist 1 headshot" />
+              <div>
+                <div class="name">Panelist Name 1</div>
+                <div class="role">Panelist</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <!-- Speaker / Panelist 4 -->
+            <div class="person">
+              <img class="avatar" src="speakers/panelist-2.jpg" alt="Panelist 2 headshot" />
+              <div>
+                <div class="name">Panelist Name 2</div>
+                <div class="role">Panelist</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+          </div>
         </article>
-        <article class="card span4">
-          <h3>Organizers</h3>
-          <p>List of organizers and affiliations will appear here.</p>
+
+        <!-- UPDATED: Organizers with 6 photos -->
+        <article class="card span4" id="organizers">
+          <h3>Organizing Team</h3>
+          <p class="subtitle" style="margin:0 0 10px;">
+            Add 6 organizer photos by placing files under <code>organizers/</code>.
+          </p>
+
+          <div class="people-grid">
+            <div class="person">
+              <img class="avatar" src="organizers/org-1.jpg" alt="Organizer 1 headshot" />
+              <div>
+                <div class="name">Organizer Name 1</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person">
+              <img class="avatar" src="organizers/org-2.jpg" alt="Organizer 2 headshot" />
+              <div>
+                <div class="name">Organizer Name 2</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person">
+              <img class="avatar" src="organizers/org-3.jpg" alt="Organizer 3 headshot" />
+              <div>
+                <div class="name">Organizer Name 3</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person">
+              <img class="avatar" src="organizers/org-4.jpg" alt="Organizer 4 headshot" />
+              <div>
+                <div class="name">Organizer Name 4</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person">
+              <img class="avatar" src="organizers/org-5.jpg" alt="Organizer 5 headshot" />
+              <div>
+                <div class="name">Organizer Name 5</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person">
+              <img class="avatar" src="organizers/org-6.jpg" alt="Organizer 6 headshot" />
+              <div>
+                <div class="name">Organizer Name 6</div>
+                <div class="role">Organizer</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -163,8 +305,8 @@
           <h3>Subscribe for updates</h3>
           <p>Join the mailing list to receive announcements (CFP, deadlines, speakers).</p>
           <form action="https://formspree.io/f/your-id" method="POST" style="display:flex; gap:10px; flex-wrap:wrap">
-            <input type="email" name="email" required placeholder="you@example.com" 
-                   style="flex:1 1 260px; padding:12px 14px; border-radius:12px; border:1px solid #2a3340; background:#0f1318; color:var(--text); outline:none; box-shadow:0 0 0 0 var(--ring) inset;" 
+            <input type="email" name="email" required placeholder="you@example.com"
+                   style="flex:1 1 260px; padding:12px 14px; border-radius:12px; border:1px solid #2a3340; background:#0f1318; color:var(--text); outline:none; box-shadow:0 0 0 0 var(--ring) inset;"
                    onfocus="this.style.boxShadow='0 0 0 3px var(--ring) inset'" onblur="this.style.boxShadow='0 0 0 0 var(--ring) inset'"/>
             <button class="btn" type="submit">Notify me</button>
           </form>
@@ -176,9 +318,9 @@
     <section id="contact">
       <div class="grid">
         <article class="card span12">
-          <h3>Contact & Links</h3>
+          <h3>Contact &amp; Links</h3>
           <p>
-            Email: realm‑gen‑org@tba • X: <a href="#">@realmgen</a> • GitHub: <a href="https://github.com/">ReALM‑GEN</a>
+            Email: realm-gen-org@tba • X: <a href="#">@realmgen</a> • GitHub: <a href="https://github.com/">ReALM-GEN</a>
           </p>
         </article>
       </div>
@@ -189,7 +331,7 @@
     <div class="wrap">
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
         <img src="realm-gen-logo.png" alt="logo" style="height:28px; width:auto; opacity:.9"/>
-        <span>© <span id="year"></span> ReALM‑GEN Workshop • Built with GitHub Pages</span>
+        <span>© <span id="year"></span> ReALM-GEN Workshop • Built with GitHub Pages</span>
       </div>
     </div>
   </footer>
