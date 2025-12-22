@@ -7,78 +7,51 @@
   <meta name="description" content="ReALM-GEN: Real-World–Constrained and Preference-Aligned Flow- and Diffusion-Based Models" />
   <link rel="icon" href="favicon.ico" />
   <style>
-      :root{
-  --bg: #f3f4f6;          /* light grey page */
-  --card: #ffffff;        /* white cards */
-  --text: #111827;        /* near-black text */
-  --muted: #4b5563;       /* muted grey text */
+    :root{
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
 
-  --brand: #2563eb;       /* blue */
-  --brand2: #7c3aed;      /* purple */
+      --brand: #2563eb;
+      --brand2: #7c3aed;
 
-  --accent: #eef2f7;      /* subtle grey fill */
-  --border: #e5e7eb;      /* light border */
-  --ring: rgba(37,99,235,.25);
+      --accent: #eef2f7;
+      --border: #e5e7eb;
+      --ring: rgba(37,99,235,.25);
 
-  --maxw: 1100px;
-  --radius: 18px;
-  --shadow: 0 10px 25px rgba(17,24,39,.08);
-}
-
-  
+      --maxw: 1100px;
+      --radius: 18px;
+      --shadow: 0 10px 25px rgba(17,24,39,.08);
+    }
 
     html,body{height:100%;}
-body{
-  margin:0;
-  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-  color:var(--text);
-  background:
-    radial-gradient(1200px 800px at 80% -10%, rgba(124,58,237,.10), transparent 60%),
-    radial-gradient(800px 500px at -10% 20%, rgba(37,99,235,.08), transparent 60%),
-    var(--bg);
-}
-
-    .toggle-card summary{
-  cursor:pointer;
-  font-weight:600;
-  padding:12px 14px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:var(--accent);
-  list-style:none;
-}
-
-.toggle-card summary::-webkit-details-marker {
-  display: none;
-}
-
-.toggle-card summary::after {
-  content: "▾";
-  float: right;
-  opacity: 0.8;
-}
-
-.toggle-card[open] summary::after {
-  content: "▴";
-}
+    body{
+      margin:0;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(124,58,237,.10), transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, rgba(37,99,235,.08), transparent 60%),
+        var(--bg);
+    }
 
     a{color:inherit;}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
 
-   header{
-  position:sticky; top:0;
-  backdrop-filter:saturate(180%) blur(10px);
-  background:linear-gradient(to bottom, rgba(243,244,246,.92), rgba(243,244,246,.72));
-  border-bottom:1px solid var(--border);
-  z-index:10;
-}
-
+    header{
+      position:sticky; top:0;
+      backdrop-filter:saturate(180%) blur(10px);
+      background:linear-gradient(to bottom, rgba(243,244,246,.92), rgba(243,244,246,.72));
+      border-bottom:1px solid var(--border);
+      z-index:10;
+    }
 
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      height:78px; /* enlarged */
+      height:78px;
       gap:16px;
     }
     .nav a.logo{
@@ -90,7 +63,7 @@ body{
       letter-spacing:.2px;
       white-space:nowrap;
     }
-    .nav img{height:75px; width:auto;} /* enlarged */
+    .nav img{height:75px; width:auto;}
     .nav .links{
       display:flex;
       gap:12px;
@@ -106,31 +79,28 @@ body{
       font-weight:600;
       background:linear-gradient(135deg, var(--brand), var(--brand2));
       color:white;
-      box-shadow:0 6px 18px rgba(122,92,255,.35);
+      box-shadow:0 6px 18px rgba(37,99,235,.22);
     }
-  
-
     .btn.ghost{
-  background:transparent;
-  border:1px solid var(--border);
-  color:var(--text);
-  box-shadow:none;
-}
-
+      background:transparent;
+      border:1px solid var(--border);
+      color:var(--text);
+      box-shadow:none;
+    }
 
     .hero{padding:72px 0 40px;}
     .hero .card{
       display:grid;
-      grid-template-columns:200px 1fr; /* enlarged logo column */
+      grid-template-columns:260px 1fr; /* enlarged logo column */
       gap:24px;
       align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent), var(--card);
-      border:1px solid #1e232b;
+      background:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.25)), var(--card);
+      border:1px solid var(--border);
       border-radius:var(--radius);
       padding:28px;
       box-shadow:var(--shadow);
     }
-    .hero .logo{width:160px; height:auto;} /* enlarged hero logo */
+    .hero .logo{width:220px; height:auto;} /* enlarged hero logo */
 
     .title{
       font-size:clamp(28px, 4vw, 40px);
@@ -139,71 +109,94 @@ body{
     }
     .subtitle{color:var(--muted); margin:0 0 14px;}
     .meta{display:flex; gap:16px; flex-wrap:wrap; color:var(--muted);}
-    .pill{padding:6px 10px; border:1px solid #2a3340; border-radius:999px;}
+    .pill{
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.6);
+    }
 
     section{padding:36px 0;}
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:22px;}
 
-
     .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:24px;
-  box-shadow:var(--shadow);
-}
-.person{
-  border:1px solid var(--border);
-}
-.pill{
-  border:1px solid var(--border);
-}
-footer{
-  border-top:1px solid var(--border);
-  color:var(--muted);
-}
+      grid-column: span 12;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .card h2, .card h3{margin:0 0 10px;}
+    .card p{margin:0 0 12px;}
+    .list{margin:0; padding-left:18px;}
 
-.avatar{
-  border:1px solid var(--border);
-  background:var(--accent);
-}
+    /* Toggle (accordion) */
+    details.toggle-card summary{
+      cursor:pointer;
+      font-weight:600;
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:var(--accent);
+      list-style:none;
+    }
+    details.toggle-card summary::-webkit-details-marker{display:none;}
+    details.toggle-card summary::after{content:"▾"; float:right; opacity:.8;}
+    details.toggle-card[open] summary::after{content:"▴";}
 
-  
+    /* People / Photos (compact + wraps) */
+    .people-grid{
+      display:grid;
+      gap:14px;
+      margin-top:12px;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .person{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:var(--card);
+    }
+    .avatar{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      object-fit:cover;
+      border:1px solid var(--border);
+      background:var(--accent);
+      flex:0 0 auto;
+    }
+    .person .name{font-weight:700; line-height:1.15;}
+    .person .role{color:var(--muted); font-size:13px; margin-top:2px;}
+    .person .affil{color:var(--muted); font-size:12.5px; margin-top:2px;}
 
-    .person .name{font-weight:700; line-height:1.2;}
-    .person .role{color:var(--muted); font-size:14px; margin-top:2px;}
-    .person .affil{color:var(--muted); font-size:13px; margin-top:2px;}
+    /* BIG variant (still compact, just slightly larger) */
+    .people-grid.big{grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));}
+    .person.big{padding:14px;}
+    .avatar.big{width:86px; height:86px; border-radius:14px;}
 
-    /* BIG variant (used for speakers/panelists + organizers) */
-    .people-grid.big{gap:18px;}
-    .person.big{padding:18px; border-radius:20px;}
-    .avatar.big{width:120px; height:120px; border-radius:18px;} /* larger rectangles */
-
-    footer{border-top:1px solid #1e232b; color:var(--muted); padding:28px 0 60px;}
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:28px 0 60px;
+    }
 
     @media (min-width: 880px){
       .card.span4{grid-column: span 4;}
       .card.span6{grid-column: span 6;}
       .card.span12{grid-column: span 12;}
-
-      /* Default people grid can be 3-up */
-      .people-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
-
-      /* BIG grids stay 2-up so each card is larger */
-      .people-grid.big{grid-template-columns:repeat(2, minmax(0, 1fr));}
     }
 
     @media (max-width: 720px){
-      .hero .card{
-        grid-template-columns:1fr; /* stack logo on small screens */
-        text-align:left;
-      }
-      .hero .logo{width:140px;}
+      .hero .card{grid-template-columns:1fr;}
+      .hero .logo{width:180px;}
     }
 
     @media (max-width: 520px){
-      .people-grid{grid-template-columns:1fr;}
-      .people-grid.big{grid-template-columns:1fr;}
       .nav{height:auto; padding:12px 0;}
     }
   </style>
@@ -232,7 +225,7 @@ footer{
           <h1 class="title">Real-World Constrained and Preference-Aligned Flow and Diffusion-Based Models</h1>
           <p class="subtitle">A workshop on post-training and inference-time alignment for generative models.</p>
           <div class="meta">
-            <span class="pill">ICLR 2026 • <em>Rio de Janeiro/ April 26th, 2026 </em></span>
+            <span class="pill">ICLR 2026 • <em>Rio de Janeiro / April 26th, 2026</em></span>
             <span class="pill">Hybrid (in-person + virtual)</span>
           </div>
         </div>
@@ -241,37 +234,32 @@ footer{
 
     <section id="about">
       <div class="grid">
-   <article class="card span12">
-  <h2>Call for Papers</h2>
+        <article class="card span12">
+          <h2>Call for Papers</h2>
 
-  <p>
-    <strong>ReALM–GEN</strong> focuses on <strong>post-training</strong> and <strong>inference-time alignment</strong> of diffusion- and flow-based generative models—treating controlled generation as sampling from a <em>tilted distribution</em> that incorporates rewards for real-world <strong>constraints</strong> and <strong>preferences</strong>.
-    Our goal is to connect <strong>theory</strong> (e.g., distribution tilting / stochastic optimal control / optimal transport perspectives) with <strong>methods</strong> (e.g., guidance, reward-based fine-tuning, test-time adaptation) and <strong>real deployments</strong> (imaging, language/multimodal, molecules, robotics).
-  </p>
-
-  <h3>Topics of interest</h3>
-  <p>We welcome submissions on (and beyond):</p>
-
-  <ul>
-    <li>
-      <strong>Theory:</strong>
-      distribution tilting and energy-based views; stochastic optimal control; Schrödinger bridges / optimal transport connections; identifiability and steerability of diffusion/flow models.
-    </li>
-    <li>
-      <strong>Methodology:</strong>
-      supervised / reward-based / sampling-based post-training; efficient conditional generation and constraint satisfaction (guidance, adapters, plug-and-play); test-time scaling and inference-time alignment; discrete diffusion guidance and diffusion language models.
-    </li>
-    <li>
-      <strong>Applications:</strong>
-      inverse problems (e.g., medical/scientific imaging), vision and robotics, language and multimodal reasoning, tabular synthesis, protein/molecule design, and safety alignment.
-    </li>
-  </ul>
-
-
-  
-          <h3>Call for Papers</h3>
           <p>
-            We invite full papers and 4 page extended abstracts (non-archival) on any relevant topic.
+            <strong>ReALM–GEN</strong> focuses on <strong>post-training</strong> and <strong>inference-time alignment</strong> of diffusion- and flow-based generative models—treating controlled generation as sampling from a <em>tilted distribution</em> that incorporates rewards for real-world <strong>constraints</strong> and <strong>preferences</strong>.
+            Our goal is to connect <strong>theory</strong> (e.g., distribution tilting / stochastic optimal control / optimal transport perspectives) with <strong>methods</strong> (e.g., guidance, reward-based fine-tuning, test-time adaptation) and <strong>real deployments</strong> (imaging, language/multimodal, molecules, robotics).
+          </p>
+
+          <h3>Topics of interest</h3>
+          <p>We welcome submissions on (and beyond):</p>
+
+          <ul class="list">
+            <li><strong>Theory:</strong> distribution tilting and energy-based views; stochastic optimal control; Schrödinger bridges / optimal transport connections; identifiability and steerability of diffusion/flow models.</li>
+            <li><strong>Methodology:</strong> supervised / reward-based / sampling-based post-training; efficient conditional generation and constraint satisfaction (guidance, adapters, plug-and-play); test-time scaling and inference-time alignment; discrete diffusion guidance and diffusion language models.</li>
+            <li><strong>Applications:</strong> inverse problems (e.g., medical/scientific imaging), vision and robotics, language and multimodal reasoning, tabular synthesis, protein/molecule design, and safety alignment.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="cfp">
+      <div class="grid">
+        <article class="card span12">
+          <h3>Submission Details</h3>
+          <p>
+            We invite full papers and 4-page extended abstracts (non-archival) on any relevant topic.
             All submissions are double-blind and will receive at least two reviews.
             Accepted papers will be presented as posters; selected works may receive spotlights.
           </p>
@@ -280,12 +268,9 @@ footer{
             <li>Formatting &amp; policy: follow ICLR workshop guidelines</li>
             <li>Contact: <a href="#contact">realm-gen-org@tba</a></li>
           </ul>
-      
-</article>
+        </article>
       </div>
     </section>
-
-    
 
     <section id="dates">
       <div class="grid">
@@ -299,223 +284,123 @@ footer{
           </ul>
         </article>
 
-        <!-- FULL-WIDTH -->
         <article class="card span12" id="speakers">
-          <h3>Invited Speakers </h3>
-          
+          <h3>Invited Speakers</h3>
           <div class="people-grid big">
             <div class="person big">
-              <img class="avatar big" src="speakers/yaron_lipman.jpeg" alt="Speaker 1 headshot" />
-              <div>
-                <div class="name">Yaron Lipman</div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">Meta (FAIR), Israel</div>
-              </div>
+              <img class="avatar big" src="speakers/yaron_lipman.jpeg" alt="Yaron Lipman headshot" />
+              <div><div class="name">Yaron Lipman</div><div class="role">Invited Speaker</div><div class="affil">Meta (FAIR), Israel</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="speakers/jong_chul_ye.jpeg" alt="Speaker 2 headshot" />
-              <div>
-                <div class="name">Jong Chul Ye </div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">KAIST, South Korea</div>
-              </div>
+              <img class="avatar big" src="speakers/jong_chul_ye.jpeg" alt="Jong Chul Ye headshot" />
+              <div><div class="name">Jong Chul Ye</div><div class="role">Invited Speaker</div><div class="affil">KAIST, South Korea</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="speakers/ruiqi_gao.jpeg" alt="Panelist 1 headshot" />
-              <div>
-                <div class="name">Ruiqi Gao </div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">Google DeepMind, USA</div>
-              </div>
+              <img class="avatar big" src="speakers/ruiqi_gao.jpeg" alt="Ruiqi Gao headshot" />
+              <div><div class="name">Ruiqi Gao</div><div class="role">Invited Speaker</div><div class="affil">Google DeepMind, USA</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="speakers/volodymyr_kuleshov.jpeg" alt="Panelist 2 headshot" />
-              <div>
-                <div class="name">Volodymyr Kuleshov </div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">Cornell University, USA</div>
-              </div>
+              <img class="avatar big" src="speakers/volodymyr_kuleshov.jpeg" alt="Volodymyr Kuleshov headshot" />
+              <div><div class="name">Volodymyr Kuleshov</div><div class="role">Invited Speaker</div><div class="affil">Cornell University, USA</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="speakers/marta_skreta.jpeg" alt="Panelist 2 headshot" />
-              <div>
-                <div class="name">Marta Skreta  </div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">University of Toronto, Canada</div>
-              </div>
+              <img class="avatar big" src="speakers/marta_skreta.jpeg" alt="Marta Skreta headshot" />
+              <div><div class="name">Marta Skreta</div><div class="role">Invited Speaker</div><div class="affil">University of Toronto, Canada</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="speakers/peter_holderieth.jpeg" alt="Panelist 2 headshot" />
-              <div>
-                <div class="name">Peter Holderieth </div>
-                <div class="role">Invited Speaker</div>
-                <div class="affil">MIT, USA</div>
-              </div>
+              <img class="avatar big" src="speakers/peter_holderieth.jpeg" alt="Peter Holderieth headshot" />
+              <div><div class="name">Peter Holderieth</div><div class="role">Invited Speaker</div><div class="affil">MIT, USA</div></div>
             </div>
           </div>
         </article>
 
-
-        <!-- FULL-WIDTH -->
-        <article class="card span12" id="speakers">
+        <article class="card span12" id="panelists">
           <h3>Panelists</h3>
-          
           <div class="people-grid big">
             <div class="person big">
-              <img class="avatar big" src="panelists/arash_vahdat.jpeg" alt="Speaker 1 headshot" />
-              <div>
-                <div class="name">Arash Vahdat</div>
-                <div class="affil">NVIDIA, USA</div>
-              </div>
+              <img class="avatar big" src="panelists/arash_vahdat.jpeg" alt="Arash Vahdat headshot" />
+              <div><div class="name">Arash Vahdat</div><div class="affil">NVIDIA, USA</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="panelists/karsten_kreis.jpeg" alt="Speaker 2 headshot" />
-              <div>
-                <div class="name">Karsten Kreis  </div>
-                <div class="affil">NVIDIA, USA</div>
-              </div>
+              <img class="avatar big" src="panelists/karsten_kreis.jpeg" alt="Karsten Kreis headshot" />
+              <div><div class="name">Karsten Kreis</div><div class="affil">NVIDIA, USA</div></div>
             </div>
-
-              <div class="person big">
-              <img class="avatar big" src="panelists/tali_dekel.jpeg" alt="Speaker 2 headshot" />
-              <div>
-                <div class="name">Tali Dekel  </div>
-                <div class="affil">Weizman Institute, Israel</div>
-              </div>
+            <div class="person big">
+              <img class="avatar big" src="panelists/tali_dekel.jpeg" alt="Tali Dekel headshot" />
+              <div><div class="name">Tali Dekel</div><div class="affil">Weizmann Institute, Israel</div></div>
             </div>
-
           </div>
         </article>
 
-        <!-- FULL-WIDTH -->
         <article class="card span12" id="organizers">
           <h3>Organizing Team</h3>
-          
           <div class="people-grid big">
             <div class="person big">
-              <img class="avatar big" src="organizers/charlotte_bunne.jpeg" alt="Organizer 1 headshot" />
-              <div>
-                <div class="name">Charlotte Bunne</div>
-                <div class="affil">EPFL, Switzerland</div>
-              </div>
+              <img class="avatar big" src="organizers/charlotte_bunne.jpeg" alt="Charlotte Bunne headshot" />
+              <div><div class="name">Charlotte Bunne</div><div class="affil">EPFL, Switzerland</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="organizers/giannis_daras.jpeg" alt="Organizer 2 headshot" />
-              <div>
-                <div class="name">Giannis Daras</div>
-                <div class="affil">MIT, USA</div>
-              </div>
+              <img class="avatar big" src="organizers/giannis_daras.jpeg" alt="Giannis Daras headshot" />
+              <div><div class="name">Giannis Daras</div><div class="affil">MIT, USA</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="organizers/paris_giampouras.jpeg" alt="Organizer 3 headshot" />
-              <div>
-                <div class="name">Paris Giampouras</div>
-                <div class="affil">University of Warwick, UK</div>
-              </div>
+              <img class="avatar big" src="organizers/paris_giampouras.jpeg" alt="Paris Giampouras headshot" />
+              <div><div class="name">Paris Giampouras</div><div class="affil">University of Warwick, UK</div></div>
             </div>
-
             <div class="person big">
-              <img class="avatar big" src="organizers/yingzhen_li.jpeg" alt="Organizer 4 headshot" />
-              <div>
-                <div class="name">Yingzhen Li</div>
-                <div class="affil">Implerial College, UK</div>
-              </div>
+              <img class="avatar big" src="organizers/yingzhen_li.jpeg" alt="Yingzhen Li headshot" />
+              <div><div class="name">Yingzhen Li</div><div class="affil">Imperial College London, UK</div></div>
             </div>
-            
-              <div class="person big">
-              <img class="avatar big" src="organizers/morteza_mardani.jpeg" alt="Organizer 6 headshot" />
-              <div>
-                <div class="name">Morteza Mardani</div>
-                <div class="affil">NVIDIA, USA</div>
-              </div>
-              </div>
-
             <div class="person big">
-              <img class="avatar big" src="organizers/Johann_Wenckstern.jpeg" alt="Organizer 5 headshot" />
-              <div>
-                <div class="name">Johann Wenckstern</div>
-                <div class="affil">EPFL, Switzerland</div>
-              </div>
+              <img class="avatar big" src="organizers/morteza_mardani.jpeg" alt="Morteza Mardani headshot" />
+              <div><div class="name">Morteza Mardani</div><div class="affil">NVIDIA, USA</div></div>
             </div>
-           
+            <div class="person big">
+              <img class="avatar big" src="organizers/Johann_Wenckstern.jpeg" alt="Johann Wenckstern headshot" />
+              <div><div class="name">Johann Wenckstern</div><div class="affil">EPFL, Switzerland</div></div>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- NEW -->
-<section id="reviewers">
-  <div class="grid">
-    <article class="card span12">
-      <h3>Reviewer Nominations</h3>
-      <p>Nominate yourself or others to serve as reviewers.</p>
-
-      <details class="toggle-card">
-        <summary>Open the reviewer nomination form</summary>
-
-        <div style="margin-top:12px; border:1px solid #1e232b; border-radius:16px; overflow:hidden; background:#0f1318;">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScJbX-5RyGqSVVZt3siKkbwkfy1ol0mMQCJynICxnngN92RFw/viewform?embedded=true"
-            width="100%"
-            height="900"
-            style="display:block; border:0;"
-            loading="lazy"
-            title="Reviewer nominations form"
-          >
-            <p>
-              Your browser does not support iframes.
-              Open the form here:
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLScJbX-5RyGqSVVZt3siKkbwkfy1ol0mMQCJynICxnngN92RFw/viewform">
-                Reviewer nominations form
-              </a>
-            </p>
-          </iframe>
-        </div>
-      </details>
-    </article>
-  </div>
-</section>
-
-
-
-  <!--  <section id="subscribe">
+    <section id="reviewers">
       <div class="grid">
         <article class="card span12">
-          <h3>Subscribe for updates</h3>
-          <p>Join the mailing list to receive announcements (CFP, deadlines, speakers).</p>
-          <form action="https://formspree.io/f/your-id" method="POST" style="display:flex; gap:10px; flex-wrap:wrap">
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="you@example.com"
-              style="flex:1 1 260px; padding:12px 14px; border-radius:12px; border:1px solid #2a3340; background:#0f1318; color:var(--text); outline:none; box-shadow:0 0 0 0 var(--ring) inset;"
-              onfocus="this.style.boxShadow='0 0 0 3px var(--ring) inset'"
-              onblur="this.style.boxShadow='0 0 0 0 var(--ring) inset'"
-            />
-            <button class="btn" type="submit">Notify me</button>
-          </form>
-          <p class="subtitle" style="margin-top:8px">Replace the form action with your preferred provider (e.g., Google Form, Mailchimp).</p>
+          <h3>Reviewer Nominations</h3>
+          <p>Nominate yourself or others to serve as reviewers.</p>
+
+          <details class="toggle-card">
+            <summary>Open the reviewer nomination form</summary>
+
+            <div style="margin-top:12px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--accent);">
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLScJbX-5RyGqSVVZt3siKkbwkfy1ol0mMQCJynICxnngN92RFw/viewform?embedded=true"
+                width="100%"
+                height="900"
+                style="display:block; border:0;"
+                loading="lazy"
+                title="Reviewer nominations form"
+              >
+                <p>
+                  Your browser does not support iframes.
+                  Open the form here:
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLScJbX-5RyGqSVVZt3siKkbwkfy1ol0mMQCJynICxnngN92RFw/viewform">
+                    Reviewer nominations form
+                  </a>
+                </p>
+              </iframe>
+            </div>
+          </details>
         </article>
       </div>
     </section>
-    -->
 
     <section id="contact">
       <div class="grid">
         <article class="card span12">
           <h3>Contact &amp; Links</h3>
-          <p>
-            Email: realm-gen-org@tba • X: <a href="#">@realmgen</a> • GitHub: <a href="https://github.com/">ReALM-GEN</a>
-          </p>
+          <p>Email: realm-gen-org@tba • X: <a href="#">@realmgen</a> • GitHub: <a href="https://github.com/">ReALM-GEN</a></p>
         </article>
       </div>
     </section>
@@ -524,7 +409,7 @@ footer{
   <footer>
     <div class="wrap">
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-        <img src="realm-gen-logo.png" alt="logo" style="height:32px; width:auto; opacity:.9"/>
+        <img src="realm-gen-logo.png" alt="logo" style="height:36px; width:auto; opacity:.95"/>
         <span>© <span id="year"></span> ReALM-GEN Workshop • Built with GitHub Pages</span>
       </div>
     </div>
