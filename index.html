@@ -20,89 +20,173 @@
       --radius: 18px;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
+
     html,body{height:100%;}
     body{
-      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      margin:0;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:var(--text);
       background:
         radial-gradient(1200px 800px at 80% -10%, rgba(122,92,255,.20), transparent 60%),
         radial-gradient(800px 500px at -10% 20%, rgba(106,163,255,.18), transparent 60%),
         var(--bg);
     }
+
     a{color:inherit;}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+
     header{
-      position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px);
+      position:sticky; top:0;
+      backdrop-filter:saturate(180%) blur(10px);
       background:linear-gradient(to bottom, rgba(11,13,16,.85), rgba(11,13,16,.55));
-      border-bottom:1px solid #1e232b; z-index:10;
+      border-bottom:1px solid #1e232b;
+      z-index:10;
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px;}
-    .nav a.logo{display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; letter-spacing:.2px;}
-    .nav img{height:34px; width:auto;}
-    .nav .links{display:flex; gap:18px;}
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:78px; /* enlarged */
+      gap:16px;
+    }
+    .nav a.logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .nav img{height:48px; width:auto;} /* enlarged */
+    .nav .links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
     .btn{
-      display:inline-block; padding:10px 16px; border-radius:12px; text-decoration:none; font-weight:600;
-      background:linear-gradient(135deg, var(--brand), var(--brand2)); color:white; box-shadow:0 6px 18px rgba(122,92,255,.35);
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      background:linear-gradient(135deg, var(--brand), var(--brand2));
+      color:white;
+      box-shadow:0 6px 18px rgba(122,92,255,.35);
     }
-    .btn.ghost{background:transparent; border:1px solid #2a3340; color:var(--text);}
+    .btn.ghost{
+      background:transparent;
+      border:1px solid #2a3340;
+      color:var(--text);
+      box-shadow:none;
+    }
+
     .hero{padding:72px 0 40px;}
     .hero .card{
-      display:grid; grid-template-columns:120px 1fr; gap:24px; align-items:center;
-      background:linear-gradient(180deg, rgba(175,255,175,.02), transparent), var(--card);
-      border:1px solid #1e232b; border-radius:var(--radius); padding:28px; box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:160px 1fr; /* enlarged logo column */
+      gap:24px;
+      align-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.02), transparent), var(--card);
+      border:1px solid #1e232b;
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
     }
-    .hero .logo{width:120px; height:auto;}
-    .title{font-size:clamp(28px, 4vw, 40px); line-height:1.15; margin:0 0 6px;}
+    .hero .logo{width:160px; height:auto;} /* enlarged hero logo */
+
+    .title{
+      font-size:clamp(28px, 4vw, 40px);
+      line-height:1.15;
+      margin:0 0 6px;
+    }
     .subtitle{color:var(--muted); margin:0 0 14px;}
     .meta{display:flex; gap:16px; flex-wrap:wrap; color:var(--muted);}
     .pill{padding:6px 10px; border:1px solid #2a3340; border-radius:999px;}
 
     section{padding:36px 0;}
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:22px;}
-    .card{grid-column: span 12; background:var(--card); border:1px solid #1e232b; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);}
+    .card{
+      grid-column: span 12;
+      background:var(--card);
+      border:1px solid #1e232b;
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
     .card h3{margin:0 0 10px; font-size:20px;}
     .card p{margin:0 0 12px;}
     .list{margin:0; padding-left:18px;}
 
-    /* --- People / Photos --- */
+    /* --- People / Photos (rectangular) --- */
     .people-grid{
       display:grid;
       grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:14px;
       margin-top:12px;
     }
+
     .person{
       display:flex;
-      gap:12px;
+      gap:14px;
       align-items:center;
-      padding:12px;
+      padding:14px;
       border:1px solid #1e232b;
-      border-radius:16px;
+      border-radius:18px;
       background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
     }
+
     .avatar{
-      width:64px; height:64px;
-      border-radius:999px;
+      width:86px; height:86px;
+      border-radius:16px;          /* rectangular */
       object-fit:cover;
       border:1px solid #2a3340;
       background:#0f1318;
       flex:0 0 auto;
     }
+
     .person .name{font-weight:700; line-height:1.2;}
     .person .role{color:var(--muted); font-size:14px; margin-top:2px;}
     .person .affil{color:var(--muted); font-size:13px; margin-top:2px;}
-    .person a{opacity:.9; text-decoration:none;}
-    .person a:hover{opacity:1; text-decoration:underline;}
+
+    /* BIG variant (used for speakers/panelists + organizers) */
+    .people-grid.big{gap:18px;}
+    .person.big{padding:18px; border-radius:20px;}
+    .avatar.big{width:120px; height:120px; border-radius:18px;} /* larger rectangles */
+
+    footer{border-top:1px solid #1e232b; color:var(--muted); padding:28px 0 60px;}
 
     @media (min-width: 880px){
       .card.span4{grid-column: span 4;}
       .card.span6{grid-column: span 6;}
+      .card.span12{grid-column: span 12;}
+
+      /* Default people grid can be 3-up */
       .people-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
+
+      /* BIG grids stay 2-up so each card is larger */
+      .people-grid.big{grid-template-columns:repeat(2, minmax(0, 1fr));}
     }
 
-    footer{border-top:1px solid #1e232b; color:var(--muted); padding:28px 0 60px;}
+    @media (max-width: 720px){
+      .hero .card{
+        grid-template-columns:1fr; /* stack logo on small screens */
+        text-align:left;
+      }
+      .hero .logo{width:140px;}
+    }
+
+    @media (max-width: 520px){
+      .people-grid{grid-template-columns:1fr;}
+      .people-grid.big{grid-template-columns:1fr;}
+      .nav{height:auto; padding:12px 0;}
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
@@ -113,6 +197,7 @@
       <nav class="links">
         <a class="btn ghost" href="#cfp">Call for Papers</a>
         <a class="btn ghost" href="#dates">Important Dates</a>
+        <a class="btn ghost" href="#reviewers">Reviewer Nominations</a>
         <a class="btn" href="#subscribe">Subscribe</a>
       </nav>
     </div>
@@ -124,7 +209,7 @@
         <img class="logo" src="realm-gen-logo.png" alt="ReALM-GEN" />
         <div>
           <h1 class="title">Real-World–Constrained and Preference-Aligned Flow- and Diffusion-Based Models</h1>
-          <p class="subtitle">An ICLR 2026 workshop on post-training and inference-time alignment for generative models.</p>
+          <p class="subtitle">A workshop on post-training and inference-time alignment for generative models.</p>
           <div class="meta">
             <span class="pill">ICLR 2026 • <em>Rio de Janeiro/ April 26th, 2026 </em></span>
             <span class="pill">Hybrid (in-person + virtual)</span>
@@ -171,118 +256,153 @@
       </div>
     </section>
 
-<section id="dates">
-  <div class="grid">
-    <article class="card span4">
-      <h3>Important Dates</h3>
-      <ul class="list">
-        <li>Submission deadline: <strong>January 30, 2026 (AOE)</strong></li>
-        <li>Notification: <strong>March 1st, 2026</strong></li>
-        <li>Camera-ready / poster: <strong>TBA</strong></li>
-        <li>Workshop: <strong>April 26th, 2026</strong></li>
-      </ul>
-    </article>
+    <section id="dates">
+      <div class="grid">
+        <article class="card span4">
+          <h3>Important Dates</h3>
+          <ul class="list">
+            <li>Submission deadline: <strong>January 30, 2026 (AOE)</strong></li>
+            <li>Notification: <strong>March 1st, 2026</strong></li>
+            <li>Camera-ready / poster: <strong>TBA</strong></li>
+            <li>Workshop: <strong>April 26th, 2026</strong></li>
+          </ul>
+        </article>
 
-    <!-- FULL-WIDTH: Speakers + Panelists -->
-    <article class="card span12" id="speakers">
-      <h3>Invited Speakers &amp; Panelists (preview)</h3>
+        <!-- FULL-WIDTH -->
+        <article class="card span12" id="speakers">
+          <h3>Invited Speakers &amp; Panelists (preview)</h3>
+          <p class="subtitle" style="margin:0 0 10px;">
+            Replace placeholders with names/affiliations and headshots as they are confirmed.
+          </p>
 
-      <div class="people-grid">
-        <div class="person">
-          <img class="avatar" src="speakers/speaker-1.jpg" alt="Yaron Lipman headshot" />
-          <div>
-            <div class="name">Yaron Lipman</div>
-            <div class="role">Invited Speaker</div>
-            <div class="affil">Meta AI</div>
+          <div class="people-grid big">
+            <div class="person big">
+              <img class="avatar big" src="speakers/speaker-1.jpg" alt="Speaker 1 headshot" />
+              <div>
+                <div class="name">Speaker Name 1</div>
+                <div class="role">Invited Speaker</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="speakers/speaker-2.jpg" alt="Speaker 2 headshot" />
+              <div>
+                <div class="name">Speaker Name 2</div>
+                <div class="role">Invited Speaker</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="speakers/panelist-1.jpg" alt="Panelist 1 headshot" />
+              <div>
+                <div class="name">Panelist Name 1</div>
+                <div class="role">Panelist</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="speakers/panelist-2.jpg" alt="Panelist 2 headshot" />
+              <div>
+                <div class="name">Panelist Name 2</div>
+                <div class="role">Panelist</div>
+                <div class="affil">Affiliation / Lab</div>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
 
-        <div class="person">
-          <img class="avatar" src="speakers/speaker-2.jpg" alt="Jong Chul Ye headshot" />
-          <div>
-            <div class="name">Jong Chul Ye</div>
-            <div class="role">Invited Speaker</div>
-            <div class="affil">KAIST</div>
-          </div>
-        </div>
+        <!-- FULL-WIDTH -->
+        <article class="card span12" id="organizers">
+          <h3>Organizing Team</h3>
+          <p class="subtitle" style="margin:0 0 10px;">
+            Upload 6 organizer photos under <code>organizers/</code> and match filenames below.
+          </p>
 
-        <div class="person">
-          <img class="avatar" src="speakers/panelist-1.jpg" alt="Ruiqi Gao headshot" />
-          <div>
-            <div class="name">Ruiqi Gao</div>
-            <div class="role">Panelist</div>
-            <div class="affil">Google DeepMind</div>
-          </div>
-        </div>
+          <div class="people-grid big">
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-1.jpg" alt="Organizer 1 headshot" />
+              <div>
+                <div class="name">Organizer Name 1</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
 
-        <div class="person">
-          <img class="avatar" src="speakers/panelist-2.jpg" alt="Volodymyr Kuleshov headshot" />
-          <div>
-            <div class="name">Volodymyr Kuleshov</div>
-            <div class="role">Panelist</div>
-            <div class="affil">Cornell University</div>
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-2.jpg" alt="Organizer 2 headshot" />
+              <div>
+                <div class="name">Organizer Name 2</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-3.jpg" alt="Organizer 3 headshot" />
+              <div>
+                <div class="name">Organizer Name 3</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-4.jpg" alt="Organizer 4 headshot" />
+              <div>
+                <div class="name">Organizer Name 4</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-5.jpg" alt="Organizer 5 headshot" />
+              <div>
+                <div class="name">Organizer Name 5</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
+
+            <div class="person big">
+              <img class="avatar big" src="organizers/org-6.jpg" alt="Organizer 6 headshot" />
+              <div>
+                <div class="name">Organizer Name 6</div>
+                <div class="affil">Affiliation</div>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
-    </article>
+    </section>
 
-    <!-- FULL-WIDTH: Organizers -->
-    <article class="card span12" id="organizers">
-      <h3>Organizing Team</h3>
+    <!-- NEW -->
+    <section id="reviewers">
+      <div class="grid">
+        <article class="card span12">
+          <h3>Reviewer Nominations</h3>
+          <p>
+            Nominate yourself or others to serve as reviewers. Please fill out the form below.
+          </p>
 
-      <div class="people-grid">
-        <div class="person">
-          <img class="avatar" src="speakers/charlotte_bunne.jpeg" alt="Charlotte Bunne headshot" />
-          <div>
-            <div class="name">Charlotte Bunne</div>
-            <div class="affil">EPFL, Switzerland</div>
+          <!-- Replace YOUR_FORM_ID with your Google Form embed URL -->
+          <div style="border:1px solid #1e232b; border-radius:16px; overflow:hidden; background:#0f1318;">
+            <iframe
+              src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+              width="100%"
+              height="900"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style="display:block; border:0;"
+            >Loading…</iframe>
           </div>
-        </div>
 
-        <div class="person">
-          <img class="avatar" src="speakers/giannis_daras.jpeg" alt="Giannis Daras headshot" />
-          <div>
-            <div class="name">Giannis Daras</div>
-            <div class="affil">MIT, USA</div>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="speakers/paris_giampouras.jpeg" alt="Paris Giampouras headshot" />
-          <div>
-            <div class="name">Paris Giampouras</div>
-            <div class="affil">University of Warwick, UK</div>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="speakers/yingzhen_li.jpeg" alt="Yingzhen Li headshot" />
-          <div>
-            <div class="name">Yingzhen Li</div>
-            <div class="affil">Imperial College, UK</div>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="speakers/morteza_mardani.jpeg" alt="Morteza Mardani headshot" />
-          <div>
-            <div class="name">Morteza Mardani</div>
-            <div class="affil">NVIDIA, USA</div>
-          </div>
-        </div>
-
-        <div class="person">
-          <img class="avatar" src="speakers/Johann_Wenckstern.jepg" alt="Johann Wenckstern headshot" />
-          <div>
-            <div class="name">Johann Wenckstern</div>
-            <div class="affil">EPFL, Switzerland</div>
-          </div>
-        </div>
+          <p class="subtitle" style="margin-top:10px">
+            Google Forms → <strong>Send</strong> → <strong>&lt;&gt;</strong> (embed) → copy the iframe link and replace
+            <code>YOUR_FORM_ID</code>.
+          </p>
+        </article>
       </div>
-    </article>
-  </div>
-</section>
-
+    </section>
 
     <section id="subscribe">
       <div class="grid">
@@ -290,9 +410,15 @@
           <h3>Subscribe for updates</h3>
           <p>Join the mailing list to receive announcements (CFP, deadlines, speakers).</p>
           <form action="https://formspree.io/f/your-id" method="POST" style="display:flex; gap:10px; flex-wrap:wrap">
-            <input type="email" name="email" required placeholder="you@example.com"
-                   style="flex:1 1 260px; padding:12px 14px; border-radius:12px; border:1px solid #2a3340; background:#0f1318; color:var(--text); outline:none; box-shadow:0 0 0 0 var(--ring) inset;"
-                   onfocus="this.style.boxShadow='0 0 0 3px var(--ring) inset'" onblur="this.style.boxShadow='0 0 0 0 var(--ring) inset'"/>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@example.com"
+              style="flex:1 1 260px; padding:12px 14px; border-radius:12px; border:1px solid #2a3340; background:#0f1318; color:var(--text); outline:none; box-shadow:0 0 0 0 var(--ring) inset;"
+              onfocus="this.style.boxShadow='0 0 0 3px var(--ring) inset'"
+              onblur="this.style.boxShadow='0 0 0 0 var(--ring) inset'"
+            />
             <button class="btn" type="submit">Notify me</button>
           </form>
           <p class="subtitle" style="margin-top:8px">Replace the form action with your preferred provider (e.g., Google Form, Mailchimp).</p>
@@ -315,7 +441,7 @@
   <footer>
     <div class="wrap">
       <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-        <img src="realm-gen-logo.png" alt="logo" style="height:28px; width:auto; opacity:.9"/>
+        <img src="realm-gen-logo.png" alt="logo" style="height:32px; width:auto; opacity:.9"/>
         <span>© <span id="year"></span> ReALM-GEN Workshop • Built with GitHub Pages</span>
       </div>
     </div>
